@@ -14,7 +14,7 @@ dependencies:
   build: ^2.3.1
   build_config: ^1.1.1
   source_gen: ^1.2.7
-  http: ^0.13.5
+  http: ^1.0.0
   path: ^1.8.3
   csv: ^5.0.2
   intl: ^0.18.1
