@@ -12,10 +12,14 @@ class CSVParser {
             .convert(strings, fieldDelimiter: fieldDelimiter);
 
   String getSupportedLocales() {
-    final locales = lines.first.sublist(1, lines.first.length).map((e) {
-      final languages = e.toString().split('_');
-      return "Locale('${languages[0]}', '${languages[1]}')";
+    final locales = lines.first.sublist(1).map((e) {
+      final parts = e.toString().split('_');
+      final languageCode = parts[0];
+      final countryCode = (parts.length > 1) ? "'${parts[1]}'" : 'null';
+
+      return "Locale('$languageCode', $countryCode)";
     }).toList();
+
     return 'static const supportedLocales = [\n${locales.join(',\n')}\n];';
   }
 
